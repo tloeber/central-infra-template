@@ -1,5 +1,5 @@
-resource "aws_secretsmanager_secret" "github_oauth_token" {
-  name        = "github_oauth_token"
+resource "aws_secretsmanager_secret" "github_PAT" {
+  name        = "github_PAT"
   description = "For giving TF Cloud access to GitHub"
 }
 
@@ -24,6 +24,7 @@ resource "aws_secretsmanager_secret" "github_oauth_token" {
 # }
 
 # For *retrieving* secret
-data "aws_secretsmanager_secret_version" "github_oauth_token_version" {
-  secret_id = resource.aws_secretsmanager_secret.github_oauth_token.id
+# Note: need to set manually after creating secret above, then re-run tf apply.
+data "aws_secretsmanager_secret_version" "github_PAT_version" {
+  secret_id = resource.aws_secretsmanager_secret.github_PAT.id
 }

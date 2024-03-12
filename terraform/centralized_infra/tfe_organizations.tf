@@ -3,20 +3,13 @@ resource "tfe_organization" "my-org" {
   email = var.organization_email
 }
 
-resource "tfe_workspace" "centralized-infra" {
-  name         = "centralized-infra"
-  organization = tfe_organization.my-org.name
-  # tag_names    = ["test", "app"]
-}
-
-
-resource "tfe_oauth_client" "github" {
-  organization     = tfe_organization.my-org.name
-  api_url          = "https://api.github.com"
-  http_url         = "https://github.com"
-  oauth_token      = data.aws_secretsmanager_secret_version.github_oauth_token_version.secret_string
-  service_provider = "github"
-}
+# resource "tfe_oauth_client" "github" {
+#   organization     = tfe_organization.my-org.name
+#   api_url          = "https://api.github.com"
+#   http_url         = "https://github.com"
+#   oauth_token      = data.aws_secretsmanager_secret_version.github_PAT_version.secret_string
+#   service_provider = "github"
+# }
 
 resource "tfe_workspace" "workspace" {
   name           = "central-infra"
