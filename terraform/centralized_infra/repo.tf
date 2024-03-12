@@ -1,3 +1,4 @@
+# todo: create module for this
 resource "github_repository" "central-infra-template" {
   name               = "central-infra-template"
   description        = "Template for centralized infrastructure"
