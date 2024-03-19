@@ -1,9 +1,10 @@
 # todo: create module for this
 resource "github_repository" "central-infra-template" {
-  name               = "central-infra-template"
-  description        = "Template for centralized infrastructure"
-  visibility         = "public"
-  is_template        = true
+  name        = var.name
+  description = var.description
+  visibility  = var.visibility
+  is_template = var.is_template
+
   archive_on_destroy = true
 
   # Features to enable

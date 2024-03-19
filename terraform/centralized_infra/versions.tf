@@ -23,6 +23,6 @@ provider "tfe" {
 }
 
 provider "github" {
-  # owner = var.github_organization
+  owner = var.github_owner
   token = data.aws_secretsmanager_secret_version.github_PAT_version.secret_string
 }
